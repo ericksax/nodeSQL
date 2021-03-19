@@ -9,5 +9,11 @@ module.exports = {
             email
         })
         return res.json(user)
+    },
+
+    async index(req, res) { 
+        const users = await User.findAll()
+
+        return res.json(users)
     }
 }
