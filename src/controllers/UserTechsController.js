@@ -19,6 +19,21 @@ module.exports = {
         await user.addTech(tech)
         
         return res.json(tech)
+    },
+
+    async index(req, res) {
+        const { user_id }  = req.params
+
+        const user = await User.findByPk(user_id, {
+            include: { association: "techs", attributes: ["name"], through: { attributes: []} }
+        })
+
+        if(!user) {
+            return res.status(400).json({ err: "user not found" })
+        }
+
+        return res.json(user.techs)
+
     }
 }
 

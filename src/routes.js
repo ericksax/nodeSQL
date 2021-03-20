@@ -12,5 +12,7 @@ router.post("/users/:user_id/address", AddressController.create)
 router.get("/users/:user_id/address", AddressController.index)
 
 router.post("/users/:user_id/techs", UserTechsController.create)
+router.get("/users/:user_id/techs", UserTechsController.index)
+
 
 module.exports = router
