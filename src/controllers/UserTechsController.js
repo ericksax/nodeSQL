@@ -25,7 +25,11 @@ module.exports = {
         const { user_id }  = req.params
 
         const user = await User.findByPk(user_id, {
-            include: { association: "techs", attributes: ["name"], through: { attributes: []} }
+            include: {
+                association: "techs",
+                attributes: ["name"],
+                through: { attributes: [] }
+            }
         })
 
         if(!user) {
@@ -33,7 +37,6 @@ module.exports = {
         }
 
         return res.json(user.techs)
-
     }
 }
 
