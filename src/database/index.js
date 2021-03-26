@@ -1,11 +1,11 @@
 const dbConfig = require('../config/database')
 const Sequelize = require('sequelize')
 
-const User = require("../models/User")
-const Address = require("../models/Address")
+const User = require('../models/User')
+const Address = require('../models/Address')
 const Tech = require('../models/Tech')
 
-const connection = new Sequelize(dbConfig) 
+const connection = new Sequelize(dbConfig)
 
 User.init(connection)
 Address.init(connection)
